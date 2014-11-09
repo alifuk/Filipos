@@ -43,7 +43,7 @@
 	#pravyBlok{
 		width: 75%;
 		float: right;
-		background-color: #DAD;
+		background-color: #FFF;
 
 	}
 
@@ -64,9 +64,22 @@
 		}
 
 		.thumb{
-			width: 150px;
-			max-height: 150px;
-			padding: 5px;
+			max-width: 164px;
+			max-height: 133px;
+			padding: 12px;
+			position: absolute;
+    		top: 0;  
+    		bottom: 0;  
+    		left: 0;  
+    		right: 0; 
+    		margin:auto;
+		}
+
+		.thumbSpan{
+			width: 164px;
+			height: 133px;
+			display: inline-block;
+			position:relative;
 		}
 
 	}
@@ -122,7 +135,7 @@ foreach ($it as $fileinfo) {
 
 
             echo "
-            <span class="">
+            <span class=\"thumbSpan\">
                 <img class=\"thumb\" src=\" foto/voda/content/images/thumb/" . $fileinfo->getFilename() . " \" />
             </span>";
 
