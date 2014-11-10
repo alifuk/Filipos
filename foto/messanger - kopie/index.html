@@ -1,0 +1,313 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="fontoGallery Lite - Web Gallery Photo Selection plugin for Adobe Lightroom" >
+    <title>fontoGallery - Selection Gallery Lite</title>
+
+
+    <link rel="stylesheet" type="text/css" href="./resources/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="./resources/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="./resources/lightbox.css" />
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="./resources/jquery.lingua.min.js"></script>
+    <script type="text/javascript" src="./resources/lightbox.js"></script>
+    <script type="text/javascript" src="./resources/modernizr.custom.js"></script>
+
+    <style type="text/css">
+      .thumbnail { 
+        width: 216px; height: 216px; 
+        padding-top: 4px;
+      }
+      .thumbnail > a {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+
+    <script type="text/javascript" src="./resources/md5.js"></script>
+    <script type="text/javascript" src="./resources/fonto.js"></script>
+    <!--<link rel="stylesheet" href="./content/custom.css" />-->
+</head>
+<body>
+  <div id="loader"><img src="./resources/images/ajax-loader2.gif" width="128" height="128" alt="loading, please wait..." /></div>
+  <div class="header">
+
+
+
+        <h1>fontoGallery - Selection Gallery Lite</h1>
+    <h2>Wedding</h2>
+    <div class="photosby"><span id="lang_photographed">photographed by:</span> <a href="mailto:email@example"><span>Contact Name</span></a></span></div>
+    <p id="customerhelp">
+      Info for a Customer    </p>
+    <p id="shorthelp">
+      You can choose photo by:<br />
+      - a right click on the photo or<br />
+      - a left click on the white circle under the photo.<br /><br />
+
+      In the top right corner you can see the number of already chosen photos.
+
+      <!--Wyboru zdjęć dokonuje się kilkając prawym przyciskiem myszy na zdjęciu lub lewym na białym kółeczku obok zdjęcia lub na jego powiększeniu.<br />
+      W prawym górnym rogu wyświetla się liczba zaznaczonych zdjęć, można stąd też ukryć niewybrane zdjęcia.<br />
+      Wyboru można dokonywać "na raty" - zacząć dziś, skończyć jutro - system zapamiętuje wybrane zdjęcia.-->
+    </p>
+  </div>
+
+  <div id="infobox">
+    <div id="infoselected"><span id="lang_youhavesel">You have selected</span> <span id="infoselcount" class="linkSelected">0</span> <span id="lang_photos">photos</span>.</div>
+    <div id="langselection">
+      <select id="whichlang" onchange="reloadAfterLangChange()">
+        <option value="xx">Default Language</option>
+        <option value="en-US">English</option>
+        <option value="pl">Polski</option>
+        <option value="sv">Svenska</option>
+      </select>
+    </div>
+  </div>
+
+<div id="content">
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/received_m_mid_1383271693485_834e3ba64aaf968c21_0.jpg" rel="lightbox[gallery]" id="p_received_m_mid_1383271693485_834e3ba64aaf968c21_0" class="photo_thumb_select" title="received_m_mid_1383271693485_834e3ba64aaf968c21_0.jpg"><img src="content/bin/images/thumb/received_m_mid_1383271693485_834e3ba64aaf968c21_0.jpg" width="150" height="200" class="photo_thumb" alt="received_m_mid_1383271693485_834e3ba64aaf968c21_0.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_received_m_mid_1383271693485_834e3ba64aaf968c21_0" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 0 642<br /> width: 525, height: 700-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/Messenger_5823375410757861354_13884008913102505.jpg" rel="lightbox[gallery]" id="p_Messenger_5823375410757861354_13884008913102505" class="photo_thumb_select" title="Messenger_5823375410757861354_13884008913102505.jpg"><img src="content/bin/images/thumb/Messenger_5823375410757861354_13884008913102505.jpg" width="200" height="120" class="photo_thumb" alt="Messenger_5823375410757861354_13884008913102505.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_Messenger_5823375410757861354_13884008913102505" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 40 656<br /> width: 700, height: 421-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/Messenger_5827534061430471239_13893923908058873.jpg" rel="lightbox[gallery]" id="p_Messenger_5827534061430471239_13893923908058873" class="photo_thumb_select" title="Messenger_5827534061430471239_13893923908058873.jpg"><img src="content/bin/images/thumb/Messenger_5827534061430471239_13893923908058873.jpg" width="120" height="200" class="photo_thumb" alt="Messenger_5827534061430471239_13893923908058873.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_Messenger_5827534061430471239_13893923908058873" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 0 675<br /> width: 421, height: 700-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/Messenger_5827538476360765395_13893934433157677.jpg" rel="lightbox[gallery]" id="p_Messenger_5827538476360765395_13893934433157677" class="photo_thumb_select" title="Messenger_5827538476360765395_13893934433157677.jpg"><img src="content/bin/images/thumb/Messenger_5827538476360765395_13893934433157677.jpg" width="200" height="120" class="photo_thumb" alt="Messenger_5827538476360765395_13893934433157677.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_Messenger_5827538476360765395_13893934433157677" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 40 689<br /> width: 700, height: 421-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/Messenger_5827539311296970929_13893936423060848.jpg" rel="lightbox[gallery]" id="p_Messenger_5827539311296970929_13893936423060848" class="photo_thumb_select" title="Messenger_5827539311296970929_13893936423060848.jpg"><img src="content/bin/images/thumb/Messenger_5827539311296970929_13893936423060848.jpg" width="200" height="120" class="photo_thumb" alt="Messenger_5827539311296970929_13893936423060848.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_Messenger_5827539311296970929_13893936423060848" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 40 703<br /> width: 700, height: 421-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/Messenger_5827805492384059549_13894571048645188.jpg" rel="lightbox[gallery]" id="p_Messenger_5827805492384059549_13894571048645188" class="photo_thumb_select" title="Messenger_5827805492384059549_13894571048645188.jpg"><img src="content/bin/images/thumb/Messenger_5827805492384059549_13894571048645188.jpg" width="200" height="120" class="photo_thumb" alt="Messenger_5827805492384059549_13894571048645188.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_Messenger_5827805492384059549_13894571048645188" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 40 723<br /> width: 700, height: 421-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/Messenger_5827830891765714802_13894631606586500.jpg" rel="lightbox[gallery]" id="p_Messenger_5827830891765714802_13894631606586500" class="photo_thumb_select" title="Messenger_5827830891765714802_13894631606586500.jpg"><img src="content/bin/images/thumb/Messenger_5827830891765714802_13894631606586500.jpg" width="200" height="150" class="photo_thumb" alt="Messenger_5827830891765714802_13894631606586500.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_Messenger_5827830891765714802_13894631606586500" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 25 737<br /> width: 700, height: 525-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/received_m_mid_1390425015744_c352a4e4c3fca3ef06_0.jpg" rel="lightbox[gallery]" id="p_received_m_mid_1390425015744_c352a4e4c3fca3ef06_0" class="photo_thumb_select" title="received_m_mid_1390425015744_c352a4e4c3fca3ef06_0.jpg"><img src="content/bin/images/thumb/received_m_mid_1390425015744_c352a4e4c3fca3ef06_0.jpg" width="150" height="200" class="photo_thumb" alt="received_m_mid_1390425015744_c352a4e4c3fca3ef06_0.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_received_m_mid_1390425015744_c352a4e4c3fca3ef06_0" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 0 751<br /> width: 525, height: 700-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/Messenger_5834740757873671816_13911106010662861.jpg" rel="lightbox[gallery]" id="p_Messenger_5834740757873671816_13911106010662861" class="photo_thumb_select" title="Messenger_5834740757873671816_13911106010662861.jpg"><img src="content/bin/images/thumb/Messenger_5834740757873671816_13911106010662861.jpg" width="120" height="200" class="photo_thumb" alt="Messenger_5834740757873671816_13911106010662861.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_Messenger_5834740757873671816_13911106010662861" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 0 765<br /> width: 421, height: 700-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/Messenger_5834759957866167465_13911151785661899.jpg" rel="lightbox[gallery]" id="p_Messenger_5834759957866167465_13911151785661899" class="photo_thumb_select" title="Messenger_5834759957866167465_13911151785661899.jpg"><img src="content/bin/images/thumb/Messenger_5834759957866167465_13911151785661899.jpg" width="120" height="200" class="photo_thumb" alt="Messenger_5834759957866167465_13911151785661899.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_Messenger_5834759957866167465_13911151785661899" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 0 779<br /> width: 421, height: 700-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/Messenger_5834768229353972443_13911171506684533.jpg" rel="lightbox[gallery]" id="p_Messenger_5834768229353972443_13911171506684533" class="photo_thumb_select" title="Messenger_5834768229353972443_13911171506684533.jpg"><img src="content/bin/images/thumb/Messenger_5834768229353972443_13911171506684533.jpg" width="120" height="200" class="photo_thumb" alt="Messenger_5834768229353972443_13911171506684533.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_Messenger_5834768229353972443_13911171506684533" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 0 793<br /> width: 421, height: 700-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/received_m_mid_1391711510164_96716caaaf5c376673_0.jpg" rel="lightbox[gallery]" id="p_received_m_mid_1391711510164_96716caaaf5c376673_0" class="photo_thumb_select" title="received_m_mid_1391711510164_96716caaaf5c376673_0.jpg"><img src="content/bin/images/thumb/received_m_mid_1391711510164_96716caaaf5c376673_0.jpg" width="150" height="200" class="photo_thumb" alt="received_m_mid_1391711510164_96716caaaf5c376673_0.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_received_m_mid_1391711510164_96716caaaf5c376673_0" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 0 807<br /> width: 480, height: 640-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/Messenger_5838706171073721405_13920560292718299.jpg" rel="lightbox[gallery]" id="p_Messenger_5838706171073721405_13920560292718299" class="photo_thumb_select" title="Messenger_5838706171073721405_13920560292718299.jpg"><img src="content/bin/images/thumb/Messenger_5838706171073721405_13920560292718299.jpg" width="120" height="200" class="photo_thumb" alt="Messenger_5838706171073721405_13920560292718299.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_Messenger_5838706171073721405_13920560292718299" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 0 821<br /> width: 421, height: 700-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/Messenger_5841247963277511888_13926620396430093.jpg" rel="lightbox[gallery]" id="p_Messenger_5841247963277511888_13926620396430093" class="photo_thumb_select" title="Messenger_5841247963277511888_13926620396430093.jpg"><img src="content/bin/images/thumb/Messenger_5841247963277511888_13926620396430093.jpg" width="120" height="200" class="photo_thumb" alt="Messenger_5841247963277511888_13926620396430093.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_Messenger_5841247963277511888_13926620396430093" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 0 835<br /> width: 421, height: 700-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/Messenger_5841636056447146336_13927545682434404.jpg" rel="lightbox[gallery]" id="p_Messenger_5841636056447146336_13927545682434404" class="photo_thumb_select" title="Messenger_5841636056447146336_13927545682434404.jpg"><img src="content/bin/images/thumb/Messenger_5841636056447146336_13927545682434404.jpg" width="120" height="200" class="photo_thumb" alt="Messenger_5841636056447146336_13927545682434404.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_Messenger_5841636056447146336_13927545682434404" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 0 849<br /> width: 421, height: 700-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/Messenger_5841636550340527261_13927546860015098.jpg" rel="lightbox[gallery]" id="p_Messenger_5841636550340527261_13927546860015098" class="photo_thumb_select" title="Messenger_5841636550340527261_13927546860015098.jpg"><img src="content/bin/images/thumb/Messenger_5841636550340527261_13927546860015098.jpg" width="120" height="200" class="photo_thumb" alt="Messenger_5841636550340527261_13927546860015098.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_Messenger_5841636550340527261_13927546860015098" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 0 863<br /> width: 421, height: 700-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/Messenger_5842317035071659186_13929169262122895.jpg" rel="lightbox[gallery]" id="p_Messenger_5842317035071659186_13929169262122895" class="photo_thumb_select" title="Messenger_5842317035071659186_13929169262122895.jpg"><img src="content/bin/images/thumb/Messenger_5842317035071659186_13929169262122895.jpg" width="120" height="200" class="photo_thumb" alt="Messenger_5842317035071659186_13929169262122895.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_Messenger_5842317035071659186_13929169262122895" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 0 877<br /> width: 421, height: 700-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/received_m_mid_1393282178394_e86f727227c4d20345_0.jpg" rel="lightbox[gallery]" id="p_received_m_mid_1393282178394_e86f727227c4d20345_0" class="photo_thumb_select" title="received_m_mid_1393282178394_e86f727227c4d20345_0.jpg"><img src="content/bin/images/thumb/received_m_mid_1393282178394_e86f727227c4d20345_0.jpg" width="133" height="200" class="photo_thumb" alt="received_m_mid_1393282178394_e86f727227c4d20345_0.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_received_m_mid_1393282178394_e86f727227c4d20345_0" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 0 891<br /> width: 464, height: 700-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/received_m_mid_1394383731789_6dcb9e37138b37e216_0.jpg" rel="lightbox[gallery]" id="p_received_m_mid_1394383731789_6dcb9e37138b37e216_0" class="photo_thumb_select" title="received_m_mid_1394383731789_6dcb9e37138b37e216_0.jpg"><img src="content/bin/images/thumb/received_m_mid_1394383731789_6dcb9e37138b37e216_0.jpg" width="200" height="150" class="photo_thumb" alt="received_m_mid_1394383731789_6dcb9e37138b37e216_0.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_received_m_mid_1394383731789_6dcb9e37138b37e216_0" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 25 905<br /> width: 700, height: 525-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/received_m_mid_1394654000793_c90af8b58f07118751_0.jpg" rel="lightbox[gallery]" id="p_received_m_mid_1394654000793_c90af8b58f07118751_0" class="photo_thumb_select" title="received_m_mid_1394654000793_c90af8b58f07118751_0.jpg"><img src="content/bin/images/thumb/received_m_mid_1394654000793_c90af8b58f07118751_0.jpg" width="150" height="200" class="photo_thumb" alt="received_m_mid_1394654000793_c90af8b58f07118751_0.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_received_m_mid_1394654000793_c90af8b58f07118751_0" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 0 919<br /> width: 480, height: 640-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/received_m_mid_1394737708009_f24d792c772fb48f39_0.jpg" rel="lightbox[gallery]" id="p_received_m_mid_1394737708009_f24d792c772fb48f39_0" class="photo_thumb_select" title="received_m_mid_1394737708009_f24d792c772fb48f39_0.jpg"><img src="content/bin/images/thumb/received_m_mid_1394737708009_f24d792c772fb48f39_0.jpg" width="200" height="179" class="photo_thumb" alt="received_m_mid_1394737708009_f24d792c772fb48f39_0.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_received_m_mid_1394737708009_f24d792c772fb48f39_0" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 10 933<br /> width: 358, height: 320-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/Messenger_5850279602244439303_13948153501947497.jpg" rel="lightbox[gallery]" id="p_Messenger_5850279602244439303_13948153501947497" class="photo_thumb_select" title="Messenger_5850279602244439303_13948153501947497.jpg"><img src="content/bin/images/thumb/Messenger_5850279602244439303_13948153501947497.jpg" width="200" height="120" class="photo_thumb" alt="Messenger_5850279602244439303_13948153501947497.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_Messenger_5850279602244439303_13948153501947497" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 40 947<br /> width: 700, height: 421-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/Messenger_5850288391392812215_13948174458741101.jpg" rel="lightbox[gallery]" id="p_Messenger_5850288391392812215_13948174458741101" class="photo_thumb_select" title="Messenger_5850288391392812215_13948174458741101.jpg"><img src="content/bin/images/thumb/Messenger_5850288391392812215_13948174458741101.jpg" width="200" height="120" class="photo_thumb" alt="Messenger_5850288391392812215_13948174458741101.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_Messenger_5850288391392812215_13948174458741101" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 40 961<br /> width: 700, height: 421-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/Messenger_5852536469614403547_13953534293109718.jpg" rel="lightbox[gallery]" id="p_Messenger_5852536469614403547_13953534293109718" class="photo_thumb_select" title="Messenger_5852536469614403547_13953534293109718.jpg"><img src="content/bin/images/thumb/Messenger_5852536469614403547_13953534293109718.jpg" width="120" height="200" class="photo_thumb" alt="Messenger_5852536469614403547_13953534293109718.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_Messenger_5852536469614403547_13953534293109718" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 0 975<br /> width: 421, height: 700-->
+    </div>
+  </div>
+
+
+  <div class="clear"></div>
+
+  <div id="form">
+    <form action="#" method="post">
+      <input type="hidden" name="form_step" id="form_step" value="1" />
+      <input type="hidden" name="form_gallerytitle" id="form_gallerytitle" value="Wedding" />
+      <input type="hidden" name="form_galleryhash" id="form_galleryhash" value="" />
+      <input type="hidden" name="form_logged_mail" id="form_logged_mail" value="" />
+      <input type="hidden" name="form_logged_pass" id="form_logged_pass" value="" />
+      <input type="hidden" name="form_from_email" id="form_from_email" value="fontogallery@fonto.pl" />
+      <input type="hidden" name="form_from_name" id="form_from_name" value="fontoGallery" />
+      <input type="text" name="form_name" id="form_name" value="name"  maxlength="100" /><br />
+      <input type="text" name="form_email" id="form_email" value="email"  maxlength="70" /><br />
+      <input type="text" name="form_phone" id="form_phone" value="phone"  maxlength="20" /><br />
+      <textarea name="form_comments" id="form_comments">comments</textarea><br />
+      <input type="button" value="send my order" id="form_submit" class="submit" />
+    </form>
+  </div>
+
+  <div class="footer">
+    <p class="galleryby">Photos Selection Gallery generated 09/11/2014 21:43:53 by Adobe Lightroom with <a href="http://fonto.pl/fontogallery.html" target="new">fontoGallery Lite</a> v0.1.6</p>
+  </div>
+</body>
+</html>

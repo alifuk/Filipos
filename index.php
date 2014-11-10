@@ -1,9 +1,10 @@
 <html>
 <head>
 	<title>Makeej</title>
-	<link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+	<!--<link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>-->
 	<script type="text/javascript" src="./js/jssor.js"></script>
 	<script type="text/javascript" src="./js/jssor.slider.js"></script>
+	<script type="text/javascript" src="./js/jquery-1.9.1.min.js"></script>
 	<meta name="viewport" content="width=device-width">
 	<style type="text/css">
 	ul{
@@ -16,11 +17,7 @@
 	}
 
 
-	.fotim {
-		font-style: italic;
-		border: none;
-		padding-right: 20px;
-	}
+	
 
 	#levyBlok{
 		width: 200px;
@@ -43,6 +40,7 @@
 
 
 	#menu{
+		cursor: pointer;
 	}
 
 	#nadpis{
@@ -50,10 +48,19 @@
 		padding-bottom: 12px;
 	}
 
-	#fotimSpan{
+	#fotimSpan, #kreslimSpan, #sportujiSpan{
 		padding: 5px 0;
 	}
 
+	.fotim , .kreslim, .sportuji{
+		font-style: italic;
+		border: none;
+		padding-right: 20px;
+	}
+
+	#ja{
+		padding: 50px;
+	}
 
 
 	#pravyBlok{
@@ -72,6 +79,7 @@
 		bottom: 0;
 		left:0;
 		margin: auto;	
+		cursor: pointer;
 	}
 
 	.thumbSpan{
@@ -95,7 +103,7 @@
 
 		#pravyBlok{
 
-			padding-top: 50px;
+			padding-top: 30px;
 		}
 
 		.thumb{
@@ -112,19 +120,80 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script>
 	$(document).ready(function(){
-		$("#fotimSpan").hide();
+		hideAll();
 
-		var skryto = 1;
+
+		$("#ja").hide();
+
+		
+		//menu skrývání a otevírání položek
+	function hideAll() {
+    $("#fotimSpan").hide();
+		$("#kreslimSpan").hide();
+		$("#sportujiSpan").hide();     
+		skrytoFotim = 1;
+		skrytoKreslim = 1;
+		skrytoSportuji = 1;       // the function returns the product of p1 and p2
+	}
+
+
+
+		var skrytoFotim = 1;
 		$("#fotimMenu").click(function(){
-			if(skryto == 1){
+
+
+			if(skrytoFotim == 1){
+				hideAll();
 				$("#fotimSpan").show(100);
-				skryto = 0;
+				skrytoFotim = 0;
 			}
 			else{
-				$("#fotimSpan").hide(100);
-				skryto = 1;
+				hideAll();
+				skrytoFotim = 1;
 
 			}
+
+		});
+
+
+
+		var skrytoKreslim = 1;
+		$("#kreslimMenu").click(function(){
+			if(skrytoKreslim == 1){
+				hideAll();
+				$("#kreslimSpan").show(100);
+				skrytoKreslim = 0;
+			}
+			else{
+				hideAll();
+				skrytoKreslim = 1;
+
+			}
+
+		});
+
+
+
+
+		var skrytoSportuji = 1;
+		$("#sportujiMenu").click(function(){
+			if(skrytoSportuji == 1){
+				hideAll();
+				$("#sportujiSpan").show(100);
+				skrytoSportuji = 0;
+			}
+			else{
+				hideAll();
+				skrytoSportuji = 1;
+
+			}
+
+		});
+
+
+		$("#menuJa").click(function(){
+
+			$("#ja").fadeIn(300);
 
 		});
 
@@ -168,6 +237,122 @@
 		});
 
 
+$(".kreslim").click(function(){
+			$("#pravyBlok").fadeOut(500);
+			var hotovoOut = 0; //pokud je hotovo skrývání
+			var hotovoIn = 0;	//pokud je ajax načtený
+			var kod = "a"; // sem se uloží kod z ajaxu
+
+
+			setTimeout(function() {
+      	if(hotovoIn == 1){
+      		$("#pravyBlok").html(kod);
+      		$("#pravyBlok").fadeIn(300);
+      	}
+      }, 500);
+
+
+			$.ajax({ url: 'ajax.php',
+				data: {action: $(this).text(), menu: 'kresby'},
+				type: 'POST',
+				success: function(output) {
+					if(hotovoOut == 1){
+						$("#pravyBlok").html(output);
+						$("#pravyBlok").fadeIn(300);
+
+					}
+					else{
+						hotovoIn = 1;
+						kod = output;
+					}
+
+				}
+			});
+
+
+		});
+
+
+
+$(".sportuji").click(function(){
+			$("#pravyBlok").fadeOut(500);
+			var hotovoOut = 0; //pokud je hotovo skrývání
+			var hotovoIn = 0;	//pokud je ajax načtený
+			var kod = "a"; // sem se uloží kod z ajaxu
+
+
+			setTimeout(function() {
+      	if(hotovoIn == 1){
+      		$("#pravyBlok").html(kod);
+      		$("#pravyBlok").fadeIn(300);
+      	}
+      }, 500);
+
+
+			$.ajax({ url: 'ajax.php',
+				data: {action: $(this).text(), menu: 'sport'},
+				type: 'POST',
+				success: function(output) {
+					if(hotovoOut == 1){
+						$("#pravyBlok").html(output);
+						$("#pravyBlok").fadeIn(300);
+
+					}
+					else{
+						hotovoIn = 1;
+						kod = output;
+					}
+
+				}
+			});
+
+
+		});
+
+
+//kliknutí na náhled
+
+$("#pravyBlok").on("click",".thumb", function(){
+
+
+
+$("#pravyBlok").fadeOut(500);
+			var hotovoOut = 0; //pokud je hotovo skrývání
+			var hotovoIn = 0;	//pokud je ajax načtený
+			var kod = "a"; // sem se uloží kod z ajaxu
+
+
+			setTimeout(function() {
+      	if(hotovoIn == 1){
+      		$("#pravyBlok").html(kod);
+      		$("#pravyBlok").fadeIn(300);
+      		jssor_slider1.$GoTo(2); 
+      	}
+      }, 500);
+
+
+			$.ajax({ url: 'ajaxGalerie.php',
+				data: {name: $(this).attr("src"), cesta: $(this).attr("cesta"), menu: 'sport'},
+				type: 'POST',
+				success: function(output) {					
+					if(hotovoOut == 1){
+						$("#pravyBlok").html(output);
+						$("#pravyBlok").fadeIn(300);
+
+					}
+					else{
+						hotovoIn = 1;
+						kod = output;
+					}
+
+				}
+			});
+});
+
+
+
+
+
 
 	});
 	</script>
@@ -185,7 +370,7 @@
 		<div id="menu">	
 			<ul>
 
-				<li>Já</li>
+				<li id="menuJa">Já</li>
 				<li id="fotimMenu">Fotím</li>
 				<span id="fotimSpan">
 					<?php
@@ -201,63 +386,55 @@
 					?>
 
 				</span>
-				<li>Kreslím</li>
-				<li>Vytvářím</li>
-				<li>Sportuji</li>
+				<li id="kreslimMenu">Kreslím</li>
+				<span id="kreslimSpan">
+					<?php
+					foreach (new DirectoryIterator('./kresby') as $fileInfo) {
+						if($fileInfo->isDot()) continue;
+						if($fileInfo->isDir()){
 
+							echo "<li class=\"kreslim\">".utf8_decode($fileInfo->getFilename()) . "</li>";
+
+						}
+
+					}
+					?>
+
+				</span>
+				<!--<li>Vytvářím</li>-->
+				<li id="sportujiMenu">Sportuji</li>
+				<span id="sportujiSpan">
+					<?php
+					foreach (new DirectoryIterator('./sport') as $fileInfo) {
+						if($fileInfo->isDot()) continue;
+						if($fileInfo->isDir()){
+
+							echo "<li class=\"sportuji\">".utf8_decode($fileInfo->getFilename()) . "</li>";
+
+						}
+
+					}
+					?>
+
+				</span>
 
 
 
 			</ul>
 		</div>
 
+
+		<div id="ja">
+			Rád fotím, běhám a učím se. To jsem já, Filip Švácha.<br><br> Tel: 665 258 789<br>Email: filipsvacha@gmail.com
+
+
+
+		</div>
+
+
 	</div>
 
 	<div id="pravyBlok">
-
-		<?php
-
-		/*
-
-
-		$dir = new RecursiveDirectoryIterator( "foto/voda/content/images/thumb" ,
-			FilesystemIterator::SKIP_DOTS);
-
-// Flatten the recursive iterator, folders come before their files
-		$it  = new RecursiveIteratorIterator($dir,
-			RecursiveIteratorIterator::SELF_FIRST);
-
-// Maximum depth is 1 level deeper than the base folder
-		$it->setMaxDepth(0);
-
-// Basic loop displaying different messages based on file or folder
-		foreach ($it as $fileinfo) {
-			if ($fileinfo->isFile() ) {
-				/*printf("File From %s - %s\n", $it->getSubPath(), $fileinfo->getFilename());*/
-		/*		if ( strrpos($fileinfo->getFilename(), "jpg" ) ) {
-
-
-
-					echo "
-					<span class=\"thumbSpan\">
-					<img class=\"thumb\" src=\" foto/voda/content/images/thumb/" . $fileinfo->getFilename() . " \" />
-					</span>";
-
-
-
-
-
-
-				}
-
-			}
-		}
-
-*/
-		?>
-
-
-
 
 
 		
@@ -266,8 +443,8 @@
 		jQuery(document).ready(function ($) {
 
 			var _SlideshowTransitions = [
-            //Fade
-            { $Duration: 1200, $Opacity: 2 }
+            //Shift left
+            { $Duration: 1200, x: 1, $Easing: { $Left: $JssorEasing$.$EaseInOutQuart },  $Brother: { $Duration: 1200, x: -1, $Easing: { $Left: $JssorEasing$.$EaseInOutQuart } } },
             ];
 
             var options = {
@@ -280,8 +457,8 @@
                 $ArrowKeyNavigation: true,   			            //[Optional] Allows keyboard (arrow key) navigation or not, default value is false
                 $SlideDuration: 400,                                //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
                 $MinDragOffsetToSlide: 20,                          //[Optional] Minimum drag offset to trigger slide , default value is 20
-                //$SlideWidth: 600,                                 //[Optional] Width of every slide in pixels, default value is width of 'slides' container
-                //$SlideHeight: 300,                                //[Optional] Height of every slide in pixels, default value is height of 'slides' container
+                $SlideWidth: 1000,                                 //[Optional] Width of every slide in pixels, default value is width of 'slides' container
+                $SlideHeight: 600,                                //[Optional] Height of every slide in pixels, default value is height of 'slides' container
                 $SlideSpacing: 0, 					                //[Optional] Space between each slide in pixels, default value is 0
                 $DisplayPieces: 1,                                  //[Optional] Number of pieces to display (the slideshow would be disabled if the value is set to greater than 1), the default value is 1
                 $ParkingPosition: 0,                                //[Optional] The offset position to park slide (this options applys only when slideshow disabled), default value is 0.
@@ -320,7 +497,7 @@
             function ScaleSlider() {
             	var parentWidth = jssor_slider1.$Elmt.parentNode.clientWidth;
             	if (parentWidth)
-            		jssor_slider1.$ScaleWidth(Math.min(parentWidth, 600));
+            		jssor_slider1.$ScaleWidth(Math.min(parentWidth, 1000));
             	else
             		window.setTimeout(ScaleSlider, 30);
             }
@@ -340,7 +517,7 @@
 </script>
 <!-- Jssor Slider Begin -->
 <!-- You can move inline styles to css file or css block. -->
-<div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 600px; height: 300px; overflow: hidden; ">
+<div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 1000px; height: 600px; overflow: hidden; ">
 
 	<!-- Loading Screen -->
 	<div u="loading" style="position: absolute; top: 0px; left: 0px;">
@@ -353,7 +530,7 @@
 </div>
 
 <!-- Slides Container -->
-<div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 600px; height: 300px; overflow: hidden;">
+<div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1000px; height: 600px; overflow: hidden;">
 	<!--
 	<div>
 		<img u="image" src="../img/landscape/11.jpg" />
@@ -368,7 +545,7 @@ foreach (new DirectoryIterator("./foto/messanger/content/bin/images/large") as $
 
 		echo "<div>
 		<img u=\"image\" src=\"./foto/messanger/content/bin/images/large/" . $fileInfo->getFilename() . " \" />
-	</div>";
+		</div>";
 
 
 	}
@@ -431,7 +608,7 @@ foreach (new DirectoryIterator("./foto/messanger/content/bin/images/large") as $
             	position: absolute;
             	cursor: pointer;
             	display: block;
-            	background: url(./img/a12.png) no-repeat;
+            	background: url(./img/a15.png) no-repeat;
             	overflow: hidden;
             }
 
@@ -460,10 +637,10 @@ foreach (new DirectoryIterator("./foto/messanger/content/bin/images/large") as $
             }
             </style>
             <!-- Arrow Left -->
-            <span u="arrowleft" class="jssora12l" style="width: 30px; height: 46px; top: 123px; left: 0px;">
+            <span u="arrowleft" class="jssora12l" style="width: 30px; height: 46px; top: 275px; left: 0px;">
             </span>
             <!-- Arrow Right -->
-            <span u="arrowright" class="jssora12r" style="width: 30px; height: 46px; top: 123px; right: 0px">
+            <span u="arrowright" class="jssora12r" style="width: 30px; height: 46px; top: 275px; right: 0px">
             </span>
             <!-- Arrow Navigator Skin End -->
             <a style="display: none" href="http://www.jssor.com">slideshow</a>

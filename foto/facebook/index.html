@@ -1,0 +1,214 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="fontoGallery Lite - Web Gallery Photo Selection plugin for Adobe Lightroom" >
+    <title>fontoGallery - Selection Gallery Lite</title>
+
+
+    <link rel="stylesheet" type="text/css" href="./resources/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="./resources/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="./resources/lightbox.css" />
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="./resources/jquery.lingua.min.js"></script>
+    <script type="text/javascript" src="./resources/lightbox.js"></script>
+    <script type="text/javascript" src="./resources/modernizr.custom.js"></script>
+
+    <style type="text/css">
+      .thumbnail { 
+        width: 216px; height: 216px; 
+        padding-top: 4px;
+      }
+      .thumbnail > a {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+
+    <script type="text/javascript" src="./resources/md5.js"></script>
+    <script type="text/javascript" src="./resources/fonto.js"></script>
+    <!--<link rel="stylesheet" href="./content/custom.css" />-->
+</head>
+<body>
+  <div id="loader"><img src="./resources/images/ajax-loader2.gif" width="128" height="128" alt="loading, please wait..." /></div>
+  <div class="header">
+
+
+
+        <h1>fontoGallery - Selection Gallery Lite</h1>
+    <h2>Wedding</h2>
+    <div class="photosby"><span id="lang_photographed">photographed by:</span> <a href="mailto:email@example"><span>Contact Name</span></a></span></div>
+    <p id="customerhelp">
+      Info for a Customer    </p>
+    <p id="shorthelp">
+      You can choose photo by:<br />
+      - a right click on the photo or<br />
+      - a left click on the white circle under the photo.<br /><br />
+
+      In the top right corner you can see the number of already chosen photos.
+
+      <!--Wyboru zdjęć dokonuje się kilkając prawym przyciskiem myszy na zdjęciu lub lewym na białym kółeczku obok zdjęcia lub na jego powiększeniu.<br />
+      W prawym górnym rogu wyświetla się liczba zaznaczonych zdjęć, można stąd też ukryć niewybrane zdjęcia.<br />
+      Wyboru można dokonywać "na raty" - zacząć dziś, skończyć jutro - system zapamiętuje wybrane zdjęcia.-->
+    </p>
+  </div>
+
+  <div id="infobox">
+    <div id="infoselected"><span id="lang_youhavesel">You have selected</span> <span id="infoselcount" class="linkSelected">0</span> <span id="lang_photos">photos</span>.</div>
+    <div id="langselection">
+      <select id="whichlang" onchange="reloadAfterLangChange()">
+        <option value="xx">Default Language</option>
+        <option value="en-US">English</option>
+        <option value="pl">Polski</option>
+        <option value="sv">Svenska</option>
+      </select>
+    </div>
+  </div>
+
+<div id="content">
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/IMG_22018791784795.jpg" rel="lightbox[gallery]" id="p_IMG_22018791784795" class="photo_thumb_select" title="IMG_22018791784795.jpg"><img src="content/bin/images/thumb/IMG_22018791784795.jpg" width="113" height="200" class="photo_thumb" alt="IMG_22018791784795.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_IMG_22018791784795" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 0 431<br /> width: 394, height: 700-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/IMG_43142240163709.jpg" rel="lightbox[gallery]" id="p_IMG_43142240163709" class="photo_thumb_select" title="IMG_43142240163709.jpg"><img src="content/bin/images/thumb/IMG_43142240163709.jpg" width="113" height="200" class="photo_thumb" alt="IMG_43142240163709.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_IMG_43142240163709" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 0 445<br /> width: 394, height: 700-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/IMG_732797956495.jpg" rel="lightbox[gallery]" id="p_IMG_732797956495" class="photo_thumb_select" title="IMG_732797956495.jpg"><img src="content/bin/images/thumb/IMG_732797956495.jpg" width="200" height="200" class="photo_thumb" alt="IMG_732797956495.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_IMG_732797956495" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 0 463<br /> width: 640, height: 640-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/IMG_8402967665012.jpg" rel="lightbox[gallery]" id="p_IMG_8402967665012" class="photo_thumb_select" title="IMG_8402967665012.jpg"><img src="content/bin/images/thumb/IMG_8402967665012.jpg" width="150" height="200" class="photo_thumb" alt="IMG_8402967665012.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_IMG_8402967665012" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 0 477<br /> width: 525, height: 700-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/IMG_9463229735410.jpg" rel="lightbox[gallery]" id="p_IMG_9463229735410" class="photo_thumb_select" title="IMG_9463229735410.jpg"><img src="content/bin/images/thumb/IMG_9463229735410.jpg" width="133" height="200" class="photo_thumb" alt="IMG_9463229735410.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_IMG_9463229735410" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 0 491<br /> width: 467, height: 700-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/IMG_2544150234555.jpg" rel="lightbox[gallery]" id="p_IMG_2544150234555" class="photo_thumb_select" title="IMG_2544150234555.jpg"><img src="content/bin/images/thumb/IMG_2544150234555.jpg" width="200" height="150" class="photo_thumb" alt="IMG_2544150234555.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_IMG_2544150234555" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 25 511<br /> width: 700, height: 525-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/IMG_1770032268253.jpg" rel="lightbox[gallery]" id="p_IMG_1770032268253" class="photo_thumb_select" title="IMG_1770032268253.jpg"><img src="content/bin/images/thumb/IMG_1770032268253.jpg" width="193" height="200" class="photo_thumb" alt="IMG_1770032268253.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_IMG_1770032268253" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 0 525<br /> width: 677, height: 700-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/IMG_79018131408259.jpg" rel="lightbox[gallery]" id="p_IMG_79018131408259" class="photo_thumb_select" title="IMG_79018131408259.jpg"><img src="content/bin/images/thumb/IMG_79018131408259.jpg" width="200" height="133" class="photo_thumb" alt="IMG_79018131408259.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_IMG_79018131408259" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 33 539<br /> width: 700, height: 467-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/IMG_79133265809884.jpg" rel="lightbox[gallery]" id="p_IMG_79133265809884" class="photo_thumb_select" title="IMG_79133265809884.jpg"><img src="content/bin/images/thumb/IMG_79133265809884.jpg" width="200" height="133" class="photo_thumb" alt="IMG_79133265809884.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_IMG_79133265809884" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 33 553<br /> width: 700, height: 467-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/IMG_79169612012884.jpg" rel="lightbox[gallery]" id="p_IMG_79169612012884" class="photo_thumb_select" title="IMG_79169612012884.jpg"><img src="content/bin/images/thumb/IMG_79169612012884.jpg" width="200" height="133" class="photo_thumb" alt="IMG_79169612012884.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_IMG_79169612012884" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 33 567<br /> width: 700, height: 467-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/IMG_79247529857926.jpg" rel="lightbox[gallery]" id="p_IMG_79247529857926" class="photo_thumb_select" title="IMG_79247529857926.jpg"><img src="content/bin/images/thumb/IMG_79247529857926.jpg" width="200" height="133" class="photo_thumb" alt="IMG_79247529857926.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_IMG_79247529857926" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 33 581<br /> width: 700, height: 467-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/IMG_79302262481384.jpg" rel="lightbox[gallery]" id="p_IMG_79302262481384" class="photo_thumb_select" title="IMG_79302262481384.jpg"><img src="content/bin/images/thumb/IMG_79302262481384.jpg" width="200" height="133" class="photo_thumb" alt="IMG_79302262481384.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_IMG_79302262481384" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 33 595<br /> width: 700, height: 467-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/IMG_79362073680301.jpg" rel="lightbox[gallery]" id="p_IMG_79362073680301" class="photo_thumb_select" title="IMG_79362073680301.jpg"><img src="content/bin/images/thumb/IMG_79362073680301.jpg" width="200" height="133" class="photo_thumb" alt="IMG_79362073680301.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_IMG_79362073680301" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 33 609<br /> width: 700, height: 467-->
+    </div>
+  </div>
+
+
+  <div class="clear"></div>
+
+  <div id="form">
+    <form action="#" method="post">
+      <input type="hidden" name="form_step" id="form_step" value="1" />
+      <input type="hidden" name="form_gallerytitle" id="form_gallerytitle" value="Wedding" />
+      <input type="hidden" name="form_galleryhash" id="form_galleryhash" value="" />
+      <input type="hidden" name="form_logged_mail" id="form_logged_mail" value="" />
+      <input type="hidden" name="form_logged_pass" id="form_logged_pass" value="" />
+      <input type="hidden" name="form_from_email" id="form_from_email" value="fontogallery@fonto.pl" />
+      <input type="hidden" name="form_from_name" id="form_from_name" value="fontoGallery" />
+      <input type="text" name="form_name" id="form_name" value="name"  maxlength="100" /><br />
+      <input type="text" name="form_email" id="form_email" value="email"  maxlength="70" /><br />
+      <input type="text" name="form_phone" id="form_phone" value="phone"  maxlength="20" /><br />
+      <textarea name="form_comments" id="form_comments">comments</textarea><br />
+      <input type="button" value="send my order" id="form_submit" class="submit" />
+    </form>
+  </div>
+
+  <div class="footer">
+    <p class="galleryby">Photos Selection Gallery generated 09/11/2014 21:42:46 by Adobe Lightroom with <a href="http://fonto.pl/fontogallery.html" target="new">fontoGallery Lite</a> v0.1.6</p>
+  </div>
+</body>
+</html>
