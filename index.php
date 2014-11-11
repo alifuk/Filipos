@@ -1,11 +1,12 @@
 <html>
 <head>
-	<title>Makeej</title>
+	<title>Filip Švácha</title>
 	<link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
 	<script type="text/javascript" src="./js/jssor.js"></script>
 	<script type="text/javascript" src="./js/jssor.slider.js"></script>
-	<!--<script type="text/javascript" src="./js/jquery-1.9.1.min.js"></script>-->	
+	<script type="text/javascript" src="./js/jquery-1.9.1.min.js"></script>
 	<meta name="viewport" content="width=device-width">
+	<meta charset="UTF-8">
 	<style type="text/css">
 	ul{
 		margin: 0;
@@ -15,7 +16,10 @@
 		border-right: 1px solid navy;
 		border-color: #999;
 	}
-
+	a {
+		text-decoration: none;
+		color: #000;
+	}
 
 	
 
@@ -46,6 +50,7 @@
 	#nadpis{
 		padding-right: 0px;
 		padding-bottom: 12px;
+		font-weight: 800;
 	}
 
 	#fotimSpan, #kreslimSpan, #sportujiSpan{
@@ -67,6 +72,8 @@
 		clear: both;
 		width: 100%;
 		background-color: #FFF;
+
+		font: 21px/25px'EB Garamond', serif;
 
 	}
 
@@ -118,85 +125,83 @@
 
 	}
 	</style>
-
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script>
 	$(document).ready(function(){
+
+		var skrytoFotim = 1;
+		var skrytoKreslim = 1;
 		hideAll();
+
 		$.ajaxSetup({ cache: false });
 
 
-		$("#ja").hide();
 
 		
 		//menu skrývání a otevírání položek
-	function hideAll() {
-    $("#fotimSpan").hide();
-		$("#kreslimSpan").hide();
-		$("#sportujiSpan").hide();     
-		skrytoFotim = 1;
-		skrytoKreslim = 1;
-		skrytoSportuji = 1;       // the function returns the product of p1 and p2
-	}
+		function hideAll() {
+			$("#fotimSpan").hide();
+			$("#kreslimSpan").hide();
+			$("#sportujiSpan").hide();     
+			skrytoFotim = 1;
+			skrytoKreslim = 1;
 
 
 
-		var skrytoFotim = 1;
+
+
+		}
+
+
+
+		function menuClick(nazev, statusSkryti){
+
+			if(statusSkryti == 1){
+				hideAll();
+				$(nazev+"Span").show(100);
+				statusSkryti = 0;
+			}
+			else{
+				hideAll();
+				statusSkryti = 1;
+			}
+
+		}
+
+
+
 		$("#fotimMenu").click(function(){
-
-
-			if(skrytoFotim == 1){
-				hideAll();
-				$("#fotimSpan").show(100);
-				skrytoFotim = 0;
-			}
-			else{
-				hideAll();
-				skrytoFotim = 1;
-
-			}
-
+			menuClick("#fotim", skrytoFotim);
 		});
 
-
-
-		var skrytoKreslim = 1;
 		$("#kreslimMenu").click(function(){
-			if(skrytoKreslim == 1){
-				hideAll();
-				$("#kreslimSpan").show(100);
-				skrytoKreslim = 0;
-			}
-			else{
-				hideAll();
-				skrytoKreslim = 1;
-
-			}
-
+			menuClick("#kreslim", skrytoFotim);
 		});
 
 
 
 
-		var skrytoSportuji = 1;
-		$("#sportujiMenu").click(function(){
-			if(skrytoSportuji == 1){
-				hideAll();
-				$("#sportujiSpan").show(100);
-				skrytoSportuji = 0;
-			}
-			else{
-				hideAll();
-				skrytoSportuji = 1;
 
-			}
 
-		});
+
+
 
 
 		$("#menuJa").click(function(){
 
-			$("#ja").fadeIn(300);
+			$("#pravyBlok").fadeOut(300);
+
+			setTimeout(function() {
+				$("#pravyBlok").html("Hej,<br>jmenuji se Filip Švácha,<br>a fotím,<br>a kreslím,<br>každý den,<br>a tohle je výběr mé tvorby.<br><br>Email: filipsvacha@gmail.com");
+				$("#pravyBlok").fadeIn(300);
+			}, 500);
+
+			
+
+
+
+
+
+
 
 		});
 
@@ -240,7 +245,7 @@
 		});
 
 
-$(".kreslim").click(function(){
+		$(".kreslim").click(function(){
 			$("#pravyBlok").fadeOut(500);
 			var hotovoOut = 0; //pokud je hotovo skrývání
 			var hotovoIn = 0;	//pokud je ajax načtený
@@ -248,11 +253,11 @@ $(".kreslim").click(function(){
 
 
 			setTimeout(function() {
-      	if(hotovoIn == 1){
-      		$("#pravyBlok").html(kod);
-      		$("#pravyBlok").fadeIn(300);
-      	}
-      }, 500);
+				if(hotovoIn == 1){
+					$("#pravyBlok").html(kod);
+					$("#pravyBlok").fadeIn(300);
+				}
+			}, 500);
 
 
 			$.ajax({ url: 'ajax.php',
@@ -277,41 +282,6 @@ $(".kreslim").click(function(){
 
 
 
-$(".sportuji").click(function(){
-			$("#pravyBlok").fadeOut(500);
-			var hotovoOut = 0; //pokud je hotovo skrývání
-			var hotovoIn = 0;	//pokud je ajax načtený
-			var kod = "a"; // sem se uloží kod z ajaxu
-
-
-			setTimeout(function() {
-      	if(hotovoIn == 1){
-      		$("#pravyBlok").html(kod);
-      		$("#pravyBlok").fadeIn(300);
-      	}
-      }, 500);
-
-
-			$.ajax({ url: 'ajax.php',
-				data: {action: $(this).text(), menu: 'sport'},
-				type: 'POST',
-				success: function(output) {
-					if(hotovoOut == 1){
-						$("#pravyBlok").html(output);
-						$("#pravyBlok").fadeIn(300);
-
-					}
-					else{
-						hotovoIn = 1;
-						kod = output;
-					}
-
-				}
-			});
-
-
-		});
-
 
 //kliknutí na náhled
 
@@ -319,19 +289,19 @@ $("#pravyBlok").on("click",".thumb", function(){
 
 
 
-$("#pravyBlok").fadeOut(500);
+	$("#pravyBlok").fadeOut(500);
 			var hotovoOut = 0; //pokud je hotovo skrývání
 			var hotovoIn = 0;	//pokud je ajax načtený
 			var kod = "a"; // sem se uloží kod z ajaxu
 
 
 			setTimeout(function() {
-      	if(hotovoIn == 1){
-      		$("#pravyBlok").html(kod);
-      		$("#pravyBlok").fadeIn(300);
-      		jssor_slider1.$GoTo(2); 
-      	}
-      }, 500);
+				if(hotovoIn == 1){
+					$("#pravyBlok").html(kod);
+					$("#pravyBlok").fadeIn(300);
+					jssor_slider1.$GoTo(2); 
+				}
+			}, 500);
 
 
 			$.ajax({ url: 'ajaxGalerie.php',
@@ -350,18 +320,16 @@ $("#pravyBlok").fadeOut(500);
 
 				}
 			});
+		});
+
+
+
+
+
+
 });
+</script>
 
-
-
-
-
-
-	});
-	</script>
-
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width">
 </head>
 <body >
 
@@ -404,35 +372,35 @@ $("#pravyBlok").fadeOut(500);
 					?>
 
 				</span>
-				<!--<li>Vytvářím</li>-->
+				<li><a href="http://daydreamingphotoboy.tumblr.com/">Blog</a></li>
 
-				</span>
-
-
-
-			</ul>
-		</div>
-
-
-		<div id="ja">
-			Rád fotím, běhám a učím se. To jsem já, Filip Švácha.<br><br> Tel: 665 258 789<br>Email: filipsvacha@gmail.com
+			</span>
 
 
 
-		</div>
+		</ul>
+	</div>
+
+
+	<div id="ja">
+		Hej,<br>jmenuji se Filip Švácha,<br>a fotím,<br>a kreslím,<br>každý den,<br>a tohle je výběr mé tvorby.<br><br>Email: filipsvacha@gmail.com
+
 
 
 	</div>
 
-	<div id="pravyBlok">
+
+</div>
+
+<div id="pravyBlok">
 
 
-		
-		<script>
 
-		jQuery(document).ready(function ($) {
+	<script>
 
-			var _SlideshowTransitions = [
+	jQuery(document).ready(function ($) {
+
+		var _SlideshowTransitions = [
             //Shift left
             { $Duration: 1200, x: 1, $Easing: { $Left: $JssorEasing$.$EaseInOutQuart },  $Brother: { $Duration: 1200, x: -1, $Easing: { $Left: $JssorEasing$.$EaseInOutQuart } } },
             ];
@@ -527,21 +495,36 @@ $("#pravyBlok").fadeOut(500);
 	</div>
 -->
 
-<?php
-foreach (new DirectoryIterator("./foto/wedding/content/bin/images/large") as $fileInfo) {
-	if($fileInfo->isDot()) continue;
-	if($fileInfo->isFile()){
+	<?php
+	foreach (new DirectoryIterator("./foto/messanger/content/bin/images/large") as $fileInfo) {
+		if($fileInfo->isDot()) continue;
+		if($fileInfo->isFile()){
+
+			$fotky[] = $fileInfo->getFilename();
+
+			
+
+
+		}
+
+	}
+	shuffle($fotky);
+
+	for ($i = 0; $i < count($fotky); $i++){
 
 
 		echo "<div>
-		<img u=\"image\" src=\"./foto/wedding/content/bin/images/large/" . $fileInfo->getFilename() . " \" />
+		<img u=\"image\" src=\"./foto/messanger/content/bin/images/large/" . $fotky[$i] . " \" />
 		</div>";
+
+
 
 
 	}
 
-}
-?>
+
+
+	?>
 
 </div>
 

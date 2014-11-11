@@ -9,14 +9,33 @@ if(isset($_POST['action']) && !empty($_POST['action']) && isset($_POST['menu']) 
 		if($fileInfo->isDot()) continue;
 		if($fileInfo->isFile()){
 
-			echo "
-			<span class=\"thumbSpan\">
-			<img class=\"thumb\" src=\"./".$menu . "/" .  $action . "/content/bin/images/thumb/" . $fileInfo->getFilename() . " \" cesta=\"./".$menu . "/" .  $action . "/content/bin/images/thumb\"/>
-			</span>";
+			$nahledy[] = $fileInfo->getFilename();
+
+
+			
 
 
 		}
 
 	}
+
+
+	
+		sort($nahledy);
+		for ($a = 0; $a < count($nahledy); $a++){
+
+
+		echo "
+			<span class=\"thumbSpan\">
+			<img class=\"thumb\" src=\"./".$menu . "/" .  $action . "/content/bin/images/thumb/" . $nahledy[$a] . " \" cesta=\"./".$menu . "/" .  $action . "/content/bin/images/thumb\"/>
+			</span>";
+
+
+
+
+		}	
+
+
+	
 }
 ?>
