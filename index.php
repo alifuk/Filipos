@@ -1,10 +1,10 @@
 <html>
 <head>
 	<title>Makeej</title>
-	<!--<link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>-->
+	<link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
 	<script type="text/javascript" src="./js/jssor.js"></script>
 	<script type="text/javascript" src="./js/jssor.slider.js"></script>
-	<script type="text/javascript" src="./js/jquery-1.9.1.min.js"></script>
+	<!--<script type="text/javascript" src="./js/jquery-1.9.1.min.js"></script>-->	
 	<meta name="viewport" content="width=device-width">
 	<style type="text/css">
 	ul{
@@ -20,7 +20,7 @@
 	
 
 	#levyBlok{
-		width: 200px;
+		width: 90%;
 		background-color: #FFF;
 		padding: 10px;
 
@@ -64,8 +64,8 @@
 
 
 	#pravyBlok{
-		width: 75%;
-		float: right;
+		clear: both;
+		width: 100%;
 		background-color: #FFF;
 
 	}
@@ -84,7 +84,7 @@
 
 	.thumbSpan{
 		display: inline-block;
-		width: 214px;
+		width: 49%;
 		height: 206px;
 
 		position: relative;
@@ -102,7 +102,9 @@
 		}
 
 		#pravyBlok{
-
+			clear: none;
+			width: 75%;
+			float: right;
 			padding-top: 30px;
 		}
 
@@ -110,7 +112,7 @@
 		}
 
 		.thumbSpan{
-
+			width: 214px;
 		}
 
 
@@ -121,6 +123,7 @@
 	<script>
 	$(document).ready(function(){
 		hideAll();
+		$.ajaxSetup({ cache: false });
 
 
 		$("#ja").hide();
@@ -402,19 +405,6 @@ $("#pravyBlok").fadeOut(500);
 
 				</span>
 				<!--<li>Vytvářím</li>-->
-				<li id="sportujiMenu">Sportuji</li>
-				<span id="sportujiSpan">
-					<?php
-					foreach (new DirectoryIterator('./sport') as $fileInfo) {
-						if($fileInfo->isDot()) continue;
-						if($fileInfo->isDir()){
-
-							echo "<li class=\"sportuji\">".utf8_decode($fileInfo->getFilename()) . "</li>";
-
-						}
-
-					}
-					?>
 
 				</span>
 
@@ -538,13 +528,13 @@ $("#pravyBlok").fadeOut(500);
 -->
 
 <?php
-foreach (new DirectoryIterator("./foto/messanger/content/bin/images/large") as $fileInfo) {
+foreach (new DirectoryIterator("./foto/wedding/content/bin/images/large") as $fileInfo) {
 	if($fileInfo->isDot()) continue;
 	if($fileInfo->isFile()){
 
 
 		echo "<div>
-		<img u=\"image\" src=\"./foto/messanger/content/bin/images/large/" . $fileInfo->getFilename() . " \" />
+		<img u=\"image\" src=\"./foto/wedding/content/bin/images/large/" . $fileInfo->getFilename() . " \" />
 		</div>";
 
 
