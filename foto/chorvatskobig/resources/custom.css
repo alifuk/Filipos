@@ -1,0 +1,36 @@
+a:link {
+  color: #444444 !important;
+  background-color: inherit;
+}
+
+#form_submit {
+  background-color: #777671 !important;
+  color: inherit;
+}
+
+
+body {
+  color: #000000 !important;
+  background-color: #8E8E87 !important;
+}
+
+input {
+  background-color: #9A9993 !important;
+  color: inherit;
+}
+
+textarea {
+  background-color: #9A9993 !important;
+  color: inherit;
+}
+
+.thumbnail {
+  background-color: #807E79 !important;
+  border-color: #505050 !important;
+  color: inherit;
+}
+
+a:visited {
+  color: #444444 !important;
+  background-color: inherit;
+}

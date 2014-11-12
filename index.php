@@ -1,7 +1,7 @@
 <html>
 <head>
 	<title>Filip Švácha</title>
-	<link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
 	<script type="text/javascript" src="./js/jssor.js"></script>
 	<script type="text/javascript" src="./js/jssor.slider.js"></script>
 	<script type="text/javascript" src="./js/jquery-1.9.1.min.js"></script>
@@ -29,11 +29,11 @@
 		padding: 10px;
 
 
-		font: 9px/15px'EB Garamond', serif;
+		font: 9px/15px'Play', sans-serif;
 		text-transform: uppercase;
 
 		letter-spacing: 3px;
-		font-weight: 600;
+		font-weight: 400;
 		font-size: x-small;
 
 
@@ -51,6 +51,7 @@
 		padding-right: 0px;
 		padding-bottom: 12px;
 		font-weight: 800;
+		font-weight: bolder;
 	}
 
 	#fotimSpan, #kreslimSpan, #sportujiSpan{
@@ -58,7 +59,7 @@
 	}
 
 	.fotim , .kreslim, .sportuji{
-		font-style: italic;
+		/*font-style: italic;*/
 		border: none;
 		padding-right: 20px;
 	}
@@ -224,7 +225,7 @@
 
 
 			$.ajax({ url: 'ajax.php',
-				data: {action: $(this).text(), menu: 'foto'},
+				data: {action: $(this).attr("data"), menu: 'foto'},
 				type: 'POST',
 				success: function(output) {
 					/*alert(output);*/
@@ -261,7 +262,7 @@
 
 
 			$.ajax({ url: 'ajax.php',
-				data: {action: $(this).text(), menu: 'kresby'},
+				data: {action: $(this).attr("data"), menu: 'kresby'},
 				type: 'POST',
 				success: function(output) {
 					if(hotovoOut == 1){
@@ -345,11 +346,25 @@ $("#pravyBlok").on("click",".thumb", function(){
 				<li id="fotimMenu">Fotím</li>
 				<span id="fotimSpan">
 					<?php
+
+					$myfile = fopen("jmena.txt", "r") or die("Posralo se otevření souboru, kontaktuj alberta ( 606 544 258)");
+					$zaznamy = explode( ";",  fread($myfile,filesize("jmena.txt")));
+					fclose($myfile);
+
+
+
 					foreach (new DirectoryIterator('./foto') as $fileInfo) {
 						if($fileInfo->isDot()) continue;
 						if($fileInfo->isDir()){
 
-							echo "<li class=\"fotim\">".utf8_decode($fileInfo->getFilename()) . "</li>";
+
+							$hodnota = utf8_decode($fileInfo->getFilename()); //jméno jak to je v souborovém systému
+							if(array_search($hodnota, $zaznamy) !== false ){
+								$hodnota = $zaznamy[array_search($hodnota, $zaznamy) + 1];
+							} 
+
+
+							echo "<li class=\"fotim\" data='".utf8_decode($fileInfo->getFilename())."'>".$hodnota . "</li>";
 
 						}
 
@@ -360,17 +375,30 @@ $("#pravyBlok").on("click",".thumb", function(){
 				<li id="kreslimMenu">Kreslím</li>
 				<span id="kreslimSpan">
 					<?php
+
+					$myfile = fopen("jmena.txt", "r") or die("Posralo se otevření souboru, kontaktuj alberta ( 606 544 258)");
+					$zaznamy = explode( ";",  fread($myfile,filesize("jmena.txt")));
+					fclose($myfile);
+
+
+
 					foreach (new DirectoryIterator('./kresby') as $fileInfo) {
 						if($fileInfo->isDot()) continue;
 						if($fileInfo->isDir()){
 
-							echo "<li class=\"kreslim\">".utf8_decode($fileInfo->getFilename()) . "</li>";
+
+							$hodnota = utf8_decode($fileInfo->getFilename()); //jméno jak to je v souborovém systému
+							if(array_search($hodnota, $zaznamy) !== false ){
+								$hodnota = $zaznamy[array_search($hodnota, $zaznamy) + 1];
+							} 
+
+
+							echo "<li class=\"kreslim\" data='".utf8_decode($fileInfo->getFilename())."'>".$hodnota . "</li>";
 
 						}
 
 					}
 					?>
-
 				</span>
 				<li><a href="http://daydreamingphotoboy.tumblr.com/">Blog</a></li>
 
@@ -407,6 +435,7 @@ $("#pravyBlok").on("click",".thumb", function(){
 
             var options = {
             	$FillMode: 1,
+            	$LazyLoading: 2,
                 $AutoPlay: true,                                    //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
                 $AutoPlaySteps: 1,                                  //[Optional] Steps to go for each navigation request (this options applys only when slideshow disabled), the default value is 1
                 $AutoPlayInterval: 3000,                            //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing, default value is 3000
@@ -495,36 +524,63 @@ $("#pravyBlok").on("click",".thumb", function(){
 	</div>
 -->
 
-	<?php
-	foreach (new DirectoryIterator("./foto/messanger/content/bin/images/large") as $fileInfo) {
+<?php
+
+
+$slozky = array();
+function slozky($menu){
+
+	foreach (new DirectoryIterator("./".$menu."/") as $fileInfo) {
 		if($fileInfo->isDot()) continue;
-		if($fileInfo->isFile()){
+		if($fileInfo->isDir()){
 
-			$fotky[] = $fileInfo->getFilename();
-
-			
-
+			global $slozky;
+			$slozky[] = "./".$menu."/" . $fileInfo->getFilename();
 
 		}
 
 	}
-	shuffle($fotky);
-
-	for ($i = 0; $i < count($fotky); $i++){
-
-
-		echo "<div>
-		<img u=\"image\" src=\"./foto/messanger/content/bin/images/large/" . $fotky[$i] . " \" />
-		</div>";
+}
 
 
 
+
+slozky("foto");
+slozky("kresby");
+
+
+for($i = 0; $i < count($slozky); $i++){
+
+	foreach (new DirectoryIterator($slozky[$i]."/content/bin/images/large") as $fileInfo) {
+		if($fileInfo->isDot()) continue;
+		if($fileInfo->isFile()){
+
+			$fotky[] = $slozky[$i]."/content/bin/images/large/".$fileInfo->getFilename();
+
+		}
 
 	}
 
+}
 
 
-	?>
+shuffle($fotky);
+
+for ($i = 0; $i < count($fotky); $i++){
+
+
+	echo "<div>
+	<img u=\"image\" src2=\"image\" src=\"". $fotky[$i] . " \" />
+	</div>";
+
+
+
+
+}
+
+
+
+?>
 
 </div>
 
