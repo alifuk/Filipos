@@ -1,5 +1,27 @@
-<?php
-echo strcmp("./foto/chorvatskobig/content/bin/images/large/Daychallenge_-_10.8.2013_10_of_10_.jpg","./foto/chorvatskobig/content/bin/images/large/Daychallenge_-_10.8.2013_10_of_10_.jpg");
-echo "<br>";
-echo strcmp("Hello","hELLo");
-?>
+<html>
+<head>
+	<title></title>
+
+	<script type="text/javascript" src="./js/jquery-1.9.1.min.js"></script>
+	<script>
+$(document).ready(function(){
+	alert('funguje');
+	$.ajax({ url: 'http://www.filipsvacha.cz/login.php',
+				data: { heslo: 'budubohatej'},
+				type: 'POST',
+				success: function(output) {
+					alert(output);
+
+				}
+			});
+
+});
+	</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+

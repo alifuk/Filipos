@@ -18,7 +18,7 @@
 		}
 
 
-		if(isset($_SESSION['prihlasen'])){
+		if(!isset($_SESSION['prihlasen'])){
 
 			header("Location: login.php");
 			die();
@@ -121,7 +121,7 @@ for ($i = 0; $i < count($slozky); $i++){
 ?>
 
 
-
+<a href="logout.php">odhlásit</a>
 </body>
 </html>
 

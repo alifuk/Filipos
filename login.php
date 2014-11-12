@@ -16,13 +16,15 @@
 	if(isset( $_POST['heslo'] )   &&   $_POST['heslo'] == "budubohatej"){
 
 		$_SESSION['prihlasen'] = "jop";
-
+		echo "prihlasen"	;
 		header("Location: admin.php");
 	}
 	else if (isset( $_POST['heslo'] )) {
-		echo "Špatný heslo";
-	}
+		echo "Špatný heslo--";
+		echo  $_POST['heslo'];
 
+
+	}
 	?>
 
 

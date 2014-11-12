@@ -15,6 +15,8 @@
 		list-style-type: none;
 		border-right: 1px solid navy;
 		border-color: #999;
+
+		cursor: pointer;
 	}
 	a {
 		text-decoration: none;
@@ -44,7 +46,6 @@
 
 
 	#menu{
-		cursor: pointer;
 	}
 
 	#nadpis{
@@ -74,7 +75,7 @@
 		width: 100%;
 		background-color: #FFF;
 
-		font: 21px/25px'EB Garamond', serif;
+		font: 15px/15px'Play', sans-serif;
 
 	}
 
@@ -140,9 +141,8 @@
 		
 		//menu skrývání a otevírání položek
 		function hideAll() {
-			$("#fotimSpan").hide();
-			$("#kreslimSpan").hide();
-			$("#sportujiSpan").hide();     
+			$("#fotimSpan").hide(200);
+			$("#kreslimSpan").hide(200);   
 			skrytoFotim = 1;
 			skrytoKreslim = 1;
 
@@ -154,28 +154,76 @@
 
 
 
-		function menuClick(nazev, statusSkryti){
+		function menuClick(nazev,statusSkryti,slozka){
 
 			if(statusSkryti == 1){
 				hideAll();
-				$(nazev+"Span").show(100);
+				$("#"+nazev+"Span").show(200);
 				statusSkryti = 0;
 			}
 			else{
+				alert("jop");
 				hideAll();
 				statusSkryti = 1;
 			}
+
+
+
+
+
+
+			$("#pravyBlok").fadeOut(500);
+			var hotovoOut = 0;
+			var hotovoIn = 0;
+			var kod = "a";
+
+
+			setTimeout(function() {
+      	// Do something after 5 seconds
+      	if(hotovoIn == 1){
+      		$("#pravyBlok").html(kod);
+      		$("#pravyBlok").fadeIn(300);
+      	}
+      }, 500);
+
+
+			$.ajax({ url: 'ajaxKategorie.php',
+				data: {menu: slozka},
+				type: 'POST',
+				success: function(output) {
+					if(hotovoOut == 1){
+						$("#pravyBlok").html(output);
+						$("#pravyBlok").fadeIn(300);
+
+					}
+					else{
+						hotovoIn = 1;
+						kod = output;
+					}
+
+				}
+			});
+
+
+
+
+
+
+
+
+
+
 
 		}
 
 
 
 		$("#fotimMenu").click(function(){
-			menuClick("#fotim", skrytoFotim);
+			menuClick("fotim", skrytoFotim, "foto");
 		});
 
 		$("#kreslimMenu").click(function(){
-			menuClick("#kreslim", skrytoFotim);
+			menuClick("kreslim", skrytoKreslim, "kresby");
 		});
 
 
@@ -192,7 +240,7 @@
 			$("#pravyBlok").fadeOut(300);
 
 			setTimeout(function() {
-				$("#pravyBlok").html("Hej,<br>jmenuji se Filip Švácha,<br>a fotím,<br>a kreslím,<br>každý den,<br>a tohle je výběr mé tvorby.<br><br>Email: filipsvacha@gmail.com");
+				$("#pravyBlok").html("<div style='width: 50%;top: 85px; left:50px; position:relative; font: 27px/30px'Play', sans-serif;'>Hej,<br>jmenuji se Filip Švácha,<br>a fotím,<br>a kreslím,<br>každý den,<br>a tohle je výběr mé tvorby.<br><br>Email: filipsvacha@gmail.com</div>");
 				$("#pravyBlok").fadeIn(300);
 			}, 500);
 
@@ -433,10 +481,16 @@ $("#pravyBlok").on("click",".thumb", function(){
             { $Duration: 1200, x: 1, $Easing: { $Left: $JssorEasing$.$EaseInOutQuart },  $Brother: { $Duration: 1200, x: -1, $Easing: { $Left: $JssorEasing$.$EaseInOutQuart } } },
             ];
 
+var _CaptionTransitions = [
+            //CLIP|LR
+            {$Duration: 1 },
+            //CLIP|TB
+            ];
+
             var options = {
             	$FillMode: 1,
             	$LazyLoading: 2,
-                $AutoPlay: true,                                    //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+                $AutoPlay: false,                                    //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
                 $AutoPlaySteps: 1,                                  //[Optional] Steps to go for each navigation request (this options applys only when slideshow disabled), the default value is 1
                 $AutoPlayInterval: 3000,                            //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing, default value is 3000
                 $PauseOnHover: 1,                               //[Optional] Whether to pause when mouse over if a slider is auto playing, 0 no pause, 1 pause for desktop, 2 pause for touch device, 3 pause for desktop and touch device, 4 freeze for desktop, 8 freeze for touch device, 12 freeze for desktop and touch device, default value is 1
@@ -458,6 +512,13 @@ $("#pravyBlok").on("click",".thumb", function(){
                     $Transitions: _SlideshowTransitions,            //[Required] An array of slideshow transitions to play slideshow
                     $TransitionsOrder: 1,                           //[Optional] The way to choose transition to play slide, 1 Sequence, 0 Random
                     $ShowLink: true                                    //[Optional] Whether to bring slide link on top of the slider when slideshow is running, default value is false
+                },
+				
+				$CaptionSliderOptions: {                            //[Optional] Options which specifies how to animate caption
+                    $Class: $JssorCaptionSlider$,                   //[Required] Class to create instance to animate caption
+                    $CaptionTransitions: _CaptionTransitions,       //[Required] An array of caption transitions to play caption, see caption transition section at jssor slideshow transition builder
+                    $PlayInMode: 3,                                 //[Optional] 0 None (no play), 1 Chain (goes after main slide), 3 Chain Flatten (goes after main slide and flatten all caption animations), default value is 1
+                    $PlayOutMode: 3                                 //[Optional] 0 None (no play), 1 Chain (goes before main slide), 3 Chain Flatten (goes before main slide and flatten all caption animations), default value is 1
                 },
 
                 $BulletNavigatorOptions: {                                //[Optional] Options to specify and enable navigator or not
@@ -570,8 +631,11 @@ for ($i = 0; $i < count($fotky); $i++){
 
 
 	echo "<div>
-	<img u=\"image\" src2=\"image\" src=\"". $fotky[$i] . " \" />
-	</div>";
+	<img u=\"image\" src2=\"image\" src=\"". $fotky[$i] . " \" />";
+	/*echo "<div u=caption t=\"*\" class=\"captionBlack\"  style=\"position:absolute; left:0px; top: 580px; width:1000; height:30px;\"> 
+                Super fotka, fakt se mi líbí.
+                </div>";*/
+	echo "</div>";
 
 
 
@@ -587,6 +651,31 @@ for ($i = 0; $i < count($fotky); $i++){
 <!-- Bullet Navigator Skin Begin -->
 <style>
 /* jssor slider bullet navigator skin 05 css */
+
+
+
+
+
+.captionBlack
+{
+	color: #000;
+	font-size: 20px;
+	line-height: 50px;
+	text-align: center;
+	font: 21px/15px'Play', sans-serif;
+	font-weight: 200;
+	background: #FFF;
+	background-color: rgba(255, 255, 255, 1);
+}
+
+
+
+
+
+
+
+
+
             /*
             .jssorb05 div           (normal)
             .jssorb05 div:hover     (normal mouseover)
