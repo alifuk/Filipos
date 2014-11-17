@@ -1,0 +1,187 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="fontoGallery Lite - Web Gallery Photo Selection plugin for Adobe Lightroom" >
+    <title>fontoGallery - Selection Gallery Lite</title>
+
+
+    <link rel="stylesheet" type="text/css" href="./resources/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="./resources/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="./resources/lightbox.css" />
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="./resources/jquery.lingua.min.js"></script>
+    <script type="text/javascript" src="./resources/lightbox.js"></script>
+    <script type="text/javascript" src="./resources/modernizr.custom.js"></script>
+
+    <style type="text/css">
+      .thumbnail { 
+        width: 216px; height: 216px; 
+        padding-top: 4px;
+      }
+      .thumbnail > a {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+
+    <script type="text/javascript" src="./resources/md5.js"></script>
+    <script type="text/javascript" src="./resources/fonto.js"></script>
+    <!--<link rel="stylesheet" href="./content/custom.css" />-->
+</head>
+<body>
+  <div id="loader"><img src="./resources/images/ajax-loader2.gif" width="128" height="128" alt="loading, please wait..." /></div>
+  <div class="header">
+
+
+
+        <h1>fontoGallery - Selection Gallery Lite</h1>
+    <h2>Wedding</h2>
+    <div class="photosby"><span id="lang_photographed">photographed by:</span> <a href="mailto:email@example"><span>Contact Name</span></a></span></div>
+    <p id="customerhelp">
+      Info for a Customer    </p>
+    <p id="shorthelp">
+      You can choose photo by:<br />
+      - a right click on the photo or<br />
+      - a left click on the white circle under the photo.<br /><br />
+
+      In the top right corner you can see the number of already chosen photos.
+
+      <!--Wyboru zdjęć dokonuje się kilkając prawym przyciskiem myszy na zdjęciu lub lewym na białym kółeczku obok zdjęcia lub na jego powiększeniu.<br />
+      W prawym górnym rogu wyświetla się liczba zaznaczonych zdjęć, można stąd też ukryć niewybrane zdjęcia.<br />
+      Wyboru można dokonywać "na raty" - zacząć dziś, skończyć jutro - system zapamiętuje wybrane zdjęcia.-->
+    </p>
+  </div>
+
+  <div id="infobox">
+    <div id="infoselected"><span id="lang_youhavesel">You have selected</span> <span id="infoselcount" class="linkSelected">0</span> <span id="lang_photos">photos</span>.</div>
+    <div id="langselection">
+      <select id="whichlang" onchange="reloadAfterLangChange()">
+        <option value="xx">Default Language</option>
+        <option value="en-US">English</option>
+        <option value="pl">Polski</option>
+        <option value="sv">Svenska</option>
+      </select>
+    </div>
+  </div>
+
+<div id="content">
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/Daychallenge_-_10.8.2013_1_of_10_.jpg" rel="lightbox[gallery]" id="p_Daychallenge_-_10.8.2013_1_of_10_" class="photo_thumb_select" title="Daychallenge_-_10.8.2013_1_of_10_.jpg"><img src="content/bin/images/thumb/Daychallenge_-_10.8.2013_1_of_10_.jpg" width="200" height="133" class="photo_thumb" alt="Daychallenge_-_10.8.2013_1_of_10_.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_Daychallenge_-_10.8.2013_1_of_10_" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 33 21<br /> width: 700, height: 467-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/Daychallenge_-_10.8.2013_2_of_10_.jpg" rel="lightbox[gallery]" id="p_Daychallenge_-_10.8.2013_2_of_10_" class="photo_thumb_select" title="Daychallenge_-_10.8.2013_2_of_10_.jpg"><img src="content/bin/images/thumb/Daychallenge_-_10.8.2013_2_of_10_.jpg" width="200" height="140" class="photo_thumb" alt="Daychallenge_-_10.8.2013_2_of_10_.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_Daychallenge_-_10.8.2013_2_of_10_" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 30 37<br /> width: 700, height: 490-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/Daychallenge_-_10.8.2013_3_of_10_.jpg" rel="lightbox[gallery]" id="p_Daychallenge_-_10.8.2013_3_of_10_" class="photo_thumb_select" title="Daychallenge_-_10.8.2013_3_of_10_.jpg"><img src="content/bin/images/thumb/Daychallenge_-_10.8.2013_3_of_10_.jpg" width="200" height="113" class="photo_thumb" alt="Daychallenge_-_10.8.2013_3_of_10_.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_Daychallenge_-_10.8.2013_3_of_10_" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 43 55<br /> width: 700, height: 394-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/Daychallenge_-_10.8.2013_4_of_10_.jpg" rel="lightbox[gallery]" id="p_Daychallenge_-_10.8.2013_4_of_10_" class="photo_thumb_select" title="Daychallenge_-_10.8.2013_4_of_10_.jpg"><img src="content/bin/images/thumb/Daychallenge_-_10.8.2013_4_of_10_.jpg" width="200" height="113" class="photo_thumb" alt="Daychallenge_-_10.8.2013_4_of_10_.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_Daychallenge_-_10.8.2013_4_of_10_" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 43 69<br /> width: 700, height: 394-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/Daychallenge_-_10.8.2013_5_of_10_.jpg" rel="lightbox[gallery]" id="p_Daychallenge_-_10.8.2013_5_of_10_" class="photo_thumb_select" title="Daychallenge_-_10.8.2013_5_of_10_.jpg"><img src="content/bin/images/thumb/Daychallenge_-_10.8.2013_5_of_10_.jpg" width="200" height="136" class="photo_thumb" alt="Daychallenge_-_10.8.2013_5_of_10_.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_Daychallenge_-_10.8.2013_5_of_10_" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 32 83<br /> width: 700, height: 478-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/Daychallenge_-_10.8.2013_6_of_10_.jpg" rel="lightbox[gallery]" id="p_Daychallenge_-_10.8.2013_6_of_10_" class="photo_thumb_select" title="Daychallenge_-_10.8.2013_6_of_10_.jpg"><img src="content/bin/images/thumb/Daychallenge_-_10.8.2013_6_of_10_.jpg" width="200" height="130" class="photo_thumb" alt="Daychallenge_-_10.8.2013_6_of_10_.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_Daychallenge_-_10.8.2013_6_of_10_" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 35 103<br /> width: 700, height: 454-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/Daychallenge_-_10.8.2013_7_of_10_.jpg" rel="lightbox[gallery]" id="p_Daychallenge_-_10.8.2013_7_of_10_" class="photo_thumb_select" title="Daychallenge_-_10.8.2013_7_of_10_.jpg"><img src="content/bin/images/thumb/Daychallenge_-_10.8.2013_7_of_10_.jpg" width="200" height="113" class="photo_thumb" alt="Daychallenge_-_10.8.2013_7_of_10_.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_Daychallenge_-_10.8.2013_7_of_10_" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 43 117<br /> width: 700, height: 394-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/Daychallenge_-_10.8.2013_8_of_10_.jpg" rel="lightbox[gallery]" id="p_Daychallenge_-_10.8.2013_8_of_10_" class="photo_thumb_select" title="Daychallenge_-_10.8.2013_8_of_10_.jpg"><img src="content/bin/images/thumb/Daychallenge_-_10.8.2013_8_of_10_.jpg" width="200" height="113" class="photo_thumb" alt="Daychallenge_-_10.8.2013_8_of_10_.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_Daychallenge_-_10.8.2013_8_of_10_" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 43 131<br /> width: 700, height: 394-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/Daychallenge_-_10.8.2013_9_of_10_.jpg" rel="lightbox[gallery]" id="p_Daychallenge_-_10.8.2013_9_of_10_" class="photo_thumb_select" title="Daychallenge_-_10.8.2013_9_of_10_.jpg"><img src="content/bin/images/thumb/Daychallenge_-_10.8.2013_9_of_10_.jpg" width="200" height="113" class="photo_thumb" alt="Daychallenge_-_10.8.2013_9_of_10_.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_Daychallenge_-_10.8.2013_9_of_10_" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 43 145<br /> width: 700, height: 394-->
+    </div>
+      <div class="photo">
+      <div class="thumbnail">
+        <a href="content/bin/images/large/Daychallenge_-_10.8.2013_10_of_10_.jpg" rel="lightbox[gallery]" id="p_Daychallenge_-_10.8.2013_10_of_10_" class="photo_thumb_select" title="Daychallenge_-_10.8.2013_10_of_10_.jpg"><img src="content/bin/images/thumb/Daychallenge_-_10.8.2013_10_of_10_.jpg" width="200" height="113" class="photo_thumb" alt="Daychallenge_-_10.8.2013_10_of_10_.jpg" /></a>
+        <div class="options">
+          <a href="#toggle" id="s_Daychallenge_-_10.8.2013_10_of_10_" class="photo_select"><img src="resources/images/blank.png" width="28" height="28" /></a>
+        </div>
+      </div>
+      <!--/ 43 159<br /> width: 700, height: 394-->
+    </div>
+  </div>
+
+
+  <div class="clear"></div>
+
+  <div id="form">
+    <form action="#" method="post">
+      <input type="hidden" name="form_step" id="form_step" value="1" />
+      <input type="hidden" name="form_gallerytitle" id="form_gallerytitle" value="Wedding" />
+      <input type="hidden" name="form_galleryhash" id="form_galleryhash" value="" />
+      <input type="hidden" name="form_logged_mail" id="form_logged_mail" value="" />
+      <input type="hidden" name="form_logged_pass" id="form_logged_pass" value="" />
+      <input type="hidden" name="form_from_email" id="form_from_email" value="fontogallery@fonto.pl" />
+      <input type="hidden" name="form_from_name" id="form_from_name" value="fontoGallery" />
+      <input type="text" name="form_name" id="form_name" value="name"  maxlength="100" /><br />
+      <input type="text" name="form_email" id="form_email" value="email"  maxlength="70" /><br />
+      <input type="text" name="form_phone" id="form_phone" value="phone"  maxlength="20" /><br />
+      <textarea name="form_comments" id="form_comments">comments</textarea><br />
+      <input type="button" value="send my order" id="form_submit" class="submit" />
+    </form>
+  </div>
+
+  <div class="footer">
+    <p class="galleryby">Photos Selection Gallery generated 09/11/2014 21:33:36 by Adobe Lightroom with <a href="http://fonto.pl/fontogallery.html" target="new">fontoGallery Lite</a> v0.1.6</p>
+  </div>
+</body>
+</html>
